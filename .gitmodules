@@ -1,0 +1,3 @@
+[submodule "pilasweb"]
+	path = pilasweb
+	url = https://github.com/hugoruscitti/pilasweb

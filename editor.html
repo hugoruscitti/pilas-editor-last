@@ -1,0 +1,194 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>pilas-editor</title>
+    <meta name="description" content="Prueba conceptual de editor de texto" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="humans.txt">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+
+    <!-- Facebook Metadata /-->
+    <meta property="fb:page_id" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content=""/>
+    <meta property="og:title" content=""/>
+
+    <!-- Google+ Metadata /-->
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/gumby.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/libs/modernizr-2.6.2.min.js"></script>
+    <script src="js/libs/brython.js"></script>
+
+    <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="pilasweb/build/pilasweb-engine-0.0.min.js"></script>
+
+
+</head>
+
+
+<body onload="brython()">
+
+<script type='text/python'>
+def eval_python(text):
+    exec(text)
+
+ejecutar_codigo()
+</script>
+
+<script>
+  document.$stdout.write = function(data) {
+    var terminal = document.getElementById('terminal');
+    terminal.textContent += data;
+  }
+</script>
+
+<div data-layout='{"type": "border", "hgap": 3, "vgap": 3}' class="layout">
+
+    <div class="center">
+        
+        <div id="editor">print("Hola mundo!")</div>
+    
+
+
+    </div>
+
+   
+    <div class="east">
+    
+      <div class='panel_resultado'>
+        <li id='cuadro_mensajes' class="alert"></li>
+        <canvas id='canvas'></canvas>
+      </div>
+
+
+      <div class='panel_manual'>
+
+        <section class="tabs">
+
+            <ul class="tab-nav">
+                <li class="active"><a href="#">Tutorial</a></li>
+                <li><a href="#">Mis programas</a></li>
+                <li><a href="#">Terminal</a></li>
+            </ul>
+
+            <div class="tab-content active">
+              <h4>Bievenido a pilas editor!</h4>
+              Este es el contenido del manual
+            </div>
+
+            <div class="tab-content">
+                <div style='text-align: right'>
+                    <div class="medium secondary btn icon-left entypo icon-plus-squared"><a href="#">Crear uno nuevo</a></div>
+                </div>
+
+              <ul>
+                <li><a href='#'>Ejemplo básico</a></li>
+                <li><a href='#'>Click de mouse</a></li>
+                <li><a href='#'>Fisica</a></li>
+              </ul>
+            </div>
+
+            <div class="tab-content">
+              <textarea disabled id='terminal' class='terminal'></textarea>
+              <p>
+              <li class="default alert">Este terminal solo muestra mensajes, no admite escribir <small>por ahora ;)</small></li>
+            </div>
+
+
+
+        </section>
+
+      </div>
+
+    </div>
+
+			<div class="north">
+				Pilas Editor <small>(Prueba de concepto)</small>
+			</div>
+
+			<div class="south">
+        Conocé mas <a href='#'>acerca de este proyecto</a>.
+			</div>
+
+</div>
+
+
+<script>
+  var editor = ace.edit("editor");
+
+  function ejecutar_codigo(e) {
+    var cuadro_mensajes = document.getElementById('cuadro_mensajes');
+    var terminal = document.getElementById('terminal');
+    terminal.textContent = "";
+
+    try {
+      var codigo = editor.getSession().getValue();
+      eval_python(codigo);
+      cuadro_mensajes.innerHTML = "";
+      cuadro_mensajes.className = "alert";
+      } catch(err) {
+      cuadro_mensajes.innerHTML = err;
+      cuadro_mensajes.className = "alert danger";
+    }
+  }
+
+  editor.getSession().on('change', ejecutar_codigo);
+</script>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.3.min.js"><\/script>')</script>
+
+<script type="text/javascript" src="js/libs/jquery.sizes.js"></script>
+<script type="text/javascript" src="js/libs/jlayout.border.js"></script>
+<script type="text/javascript" src="js/libs/jquery.jlayout.js"></script>
+<script type="text/javascript" src='js/layout_init.js'></script>
+<script src="js/libs/gumby.min.js"></script>
+<script src="js/main.js"></script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+<script>
+  require(['init'], function(pilas){
+    window.pilas = pilas;
+    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb/build/data'});
+    window.pilas.onready = function(){;
+      // ejecuta el codigo del editor.
+    };
+  });
+
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/python");
+  editor.setDisplayIndentGuides(false);
+</script>
+
+  </body>
+</html>
