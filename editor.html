@@ -69,29 +69,6 @@ ejecutar_codigo()
         
         <div id="editor">print("Hola mundo!")</div>
     
-<script>
-    var editor = ace.edit("editor");
-
-    
-    function ejecutar_codigo(e) {
-        var cuadro_mensajes = document.getElementById('cuadro_mensajes');
-        var terminal = document.getElementById('terminal');
-        terminal.textContent = "";
-
-        try {
-            var codigo = editor.getSession().getValue();
-            eval_python(codigo);
-            cuadro_mensajes.innerHTML = "";
-            cuadro_mensajes.className = "alert";
-        } catch(err) {
-            cuadro_mensajes.innerHTML = err;
-            cuadro_mensajes.className = "alert danger";
-          }
-    }
-
-    editor.getSession().on('change', ejecutar_codigo);
-</script>
-
 
 
     </div>
@@ -157,38 +134,40 @@ ejecutar_codigo()
 </div>
 
 
+<script>
+  var editor = ace.edit("editor");
 
+  function ejecutar_codigo(e) {
+    var cuadro_mensajes = document.getElementById('cuadro_mensajes');
+    var terminal = document.getElementById('terminal');
+    terminal.textContent = "";
+
+    try {
+      var codigo = editor.getSession().getValue();
+      eval_python(codigo);
+      cuadro_mensajes.innerHTML = "";
+      cuadro_mensajes.className = "alert";
+      } catch(err) {
+      cuadro_mensajes.innerHTML = err;
+      cuadro_mensajes.className = "alert danger";
+    }
+  }
+
+  editor.getSession().on('change', ejecutar_codigo);
+</script>
 
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.3.min.js"><\/script>')</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.3.min.js"><\/script>')</script>
 
-
-
-    <script type="text/javascript" src="js/libs/jquery.sizes.js"></script>
-		<script type="text/javascript" src="js/libs/jlayout.border.js"></script>
-		<script type="text/javascript" src="js/libs/jquery.jlayout.js"></script>
-
-		<script type="text/javascript" src='js/layout_init.js'></script>
-
-  <!--
-  Include gumby.js followed by UI modules.
-  Or concatenate and minify into a single file
-  <script src="js/libs/gumby.js"></script>
-  <script src="js/libs/ui/gumby.retina.js"></script>
-  <script src="js/libs/ui/gumby.fixed.js"></script>
-  <script src="js/libs/ui/gumby.skiplink.js"></script>
-  <script src="js/libs/ui/gumby.toggleswitch.js"></script>
-  <script src="js/libs/ui/gumby.checkbox.js"></script>
-  <script src="js/libs/ui/gumby.radiobtn.js"></script>
-  <script src="js/libs/ui/gumby.tabs.js"></script>
-  <script src="js/libs/ui/jquery.validation.js"></script>
-  -->
-  <script src="js/libs/gumby.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+<script type="text/javascript" src="js/libs/jquery.sizes.js"></script>
+<script type="text/javascript" src="js/libs/jlayout.border.js"></script>
+<script type="text/javascript" src="js/libs/jquery.jlayout.js"></script>
+<script type="text/javascript" src='js/layout_init.js'></script>
+<script src="js/libs/gumby.min.js"></script>
+<script src="js/main.js"></script>
 
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
@@ -197,19 +176,19 @@ ejecutar_codigo()
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
+<script>
+  require(['init'], function(pilas){
+    window.pilas = pilas;
+    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb/build/data'});
+    window.pilas.onready = function(){;
+      // ejecuta el codigo del editor.
+    };
+  });
 
-    <script>
-    require(['init'], function(pilas){
-      window.pilas = pilas;
-      window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb/build/data'});
-      window.pilas.onready = function(){;
-        // ejecuta el codigo del editor.
-      };
-    });
-
-        editor.setTheme("ace/theme/monokai");
-        editor.getSession().setMode("ace/mode/python");
-    </script>
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/python");
+  editor.setDisplayIndentGuides(false);
+</script>
 
   </body>
 </html>
