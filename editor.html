@@ -41,7 +41,7 @@
     <script src="js/libs/brython.js"></script>
 
     <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="pilasweb/build/pilasweb-engine-0.0.min.js"></script>
+    <script src="pilasweb_build/pilasweb-engine-0.0.min.js"></script>
 
 
 </head>
@@ -179,7 +179,7 @@ ejecutar_codigo()
 <script>
   require(['init'], function(pilas){
     window.pilas = pilas;
-    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb/build/data'});
+    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb_build/data'});
     window.pilas.onready = function(){;
       // ejecuta el codigo del editor.
     };
