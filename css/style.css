@@ -49,7 +49,7 @@ html, body {
   background-color: gray;
 }
 
-  .panel_resultado canvas#resultado {
+  .panel_resultado canvas#canvas {
     height: 240px;
     width: 500px;
   }

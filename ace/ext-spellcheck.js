@@ -1,4 +1,4 @@
-define('ace/ext/spellcheck', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/ext/spellcheck', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
     text.spellcheck = !false;
