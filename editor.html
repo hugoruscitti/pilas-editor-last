@@ -67,7 +67,24 @@ ejecutar_codigo()
 
     <div class="center">
         
-        <div id="editor">print("Hola mundo!")</div>
+        <div id="editor">pilas.iniciar()
+
+a = pilas.actores.Aceituna()
+a.x = 250
+a.y = 140
+a.rotacion = 65
+
+def crear_otro_actor(x, y):
+  coop = pilas.actores.Cooperativista()
+  coop.x = x
+  coop.y = y
+
+crear_otro_actor(200, 120)
+
+# Para ver en la terminal ...
+print("¿hola?, ¿terminal de texto?, ¿estas ahí?")
+print("Eco " * 10)
+</div>
     
 
 
@@ -142,14 +159,17 @@ ejecutar_codigo()
     var terminal = document.getElementById('terminal');
     terminal.textContent = "";
 
+
+
     try {
-      var codigo = editor.getSession().getValue();
-      eval_python(codigo);
-      cuadro_mensajes.innerHTML = "";
-      cuadro_mensajes.className = "alert";
+        var codigo = editor.getSession().getValue();
+        pilas.reiniciar();
+        eval_python(codigo);
+        cuadro_mensajes.innerHTML = "";
+        cuadro_mensajes.className = "alert";
       } catch(err) {
-      cuadro_mensajes.innerHTML = err;
-      cuadro_mensajes.className = "alert danger";
+        cuadro_mensajes.innerHTML = err;
+        cuadro_mensajes.className = "alert danger";
     }
   }
 
@@ -177,10 +197,27 @@ ejecutar_codigo()
   <![endif]-->
 
 <script>
+function aplicar_binding_a_pilas(pilas) {
+  getter = function(a) {return this[a]};
+  setter = function(a, v) {this[a] = v};
+
+  pilas.__getattr__ = getter
+  pilas.actores.__getattr__ = getter
+
+  pilas.actores.Aceituna.__getattr__ = getter
+  pilas.actores.Aceituna.__setattr__ = setter
+}
+</script>
+
+<script>
   require(['init'], function(pilas){
     window.pilas = pilas;
-    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb/build/data'});
+    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb_build/data'});
+
+    // haciendo seguro llamar varias veces a "pilas.iniciar".
+    pilas.iniciar = pilas.reiniciar;
     window.pilas.onready = function(){;
+      aplicar_binding_a_pilas(pilas);
       // ejecuta el codigo del editor.
     };
   });
