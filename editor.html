@@ -5,7 +5,7 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
 <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
 
@@ -36,9 +36,12 @@
 
     <link rel="stylesheet" href="css/gumby.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="programas.json">
 
     <script src="js/libs/modernizr-2.6.2.min.js"></script>
     <script src="js/libs/brython.js"></script>
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/app.js"></script>
 
     <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="pilasweb/build/pilasweb-engine-0.0.min.js"></script>
@@ -47,7 +50,7 @@
 </head>
 
 
-<body onload="brython()">
+<body onload="brython()" ng-controller='ApplicationController'>
 
 <script type='text/python'>
 def eval_python(text):
@@ -112,18 +115,21 @@ print("Eco " * 10)
             <div class="tab-content active">
               <h4>Bievenido a pilas editor!</h4>
               Este es el contenido del manual
+
+              <p>
+              <a href='#/ejemplo'>Ejemplo</a>
+
             </div>
 
             <div class="tab-content">
                 <div style='text-align: right'>
-                    <div class="medium secondary btn icon-left entypo icon-plus-squared"><a href="#">Crear uno nuevo</a></div>
+                    <div class="medium secondary btn icon-left entypo icon-plus-squared"><a ng-click='crear_programa()' href="#">Crear uno nuevo</a></div>
                 </div>
 
               <ul>
-                <li><a href='#'>Ejemplo básico</a></li>
-                <li><a href='#'>Click de mouse</a></li>
-                <li><a href='#'>Fisica</a></li>
+                <li ng-repeat='programa in programas | orderBy:name'><a ng-click='abrir_programa(programa.id)' href='#'>{{programa.name}}</a></li>
               </ul>
+
             </div>
 
             <div class="tab-content">
@@ -153,6 +159,7 @@ print("Eco " * 10)
 
 <script>
   var editor = ace.edit("editor");
+  window.editor = editor;
 
   function ejecutar_codigo(e) {
     var cuadro_mensajes = document.getElementById('cuadro_mensajes');
