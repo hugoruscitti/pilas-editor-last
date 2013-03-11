@@ -116,24 +116,102 @@ print("Eco " * 10)
               <ng-view>Cargando ...</ng-view>
 
               <script type='text/ng-template' id='home.html'>
-                    <h4>Bievenido a pilas editor!</h4>
+                    <h4>¡Hola!</h4>
 
-                    <p>Este es el contenido del manual
+                    <p>Te damos la bienvenida a <em>pilas-editor</em>, una herramienta
+para aprender a programar computadoras haciendo videojuegos, webs y algunas cosas mas.
 
                     <p>
-                    <a href='#/ejemplo'>Ir a una segunda página</a>
+                    <strong>Contenido:</strong>
+
+                    <ul>
+                        <li><a href='#/programar'>¿Programar?</a>
+                        <li><a href='#/lenguaje'>Lenguaje</a>
+                        <li>...
+                        <li><a href='#/glosario'>Glosario</a>
+                    </ul>
+
+                    <p><small>Habrá mas lecciones en el futuro por supuesto :)</small>
+            
               </script>
 
-              <script type='text/ng-template' id='ejemplos.html'>
-                <p>Esta es la segunda página, con un código de ejemplo:
+              <script type='text/ng-template' id='programar.html'>
+                <div style='text-align: right'><a href='#/'><i class="icon-left-circled"></i> Regresar</a> </div>
+
+                <p>¿Programar?</p>
+
+                <p>Así es, posiblemente has escuchado esto antes: Programar consiste en decirle
+a la computadora que tiene que hacer, es darle órdenes, muy específicas y a la vez muy poderosas.
+
+                <p>Casi todo lo que nos rodea usa algún tipo de computadora programable: internet, 
+celulares, computadoras, videojuegos, incluso algunas TV !!.
+
+                <p>Programar es algo que se puede aprender haciendo, es cómo dibujar, tocar
+                música o escribir. Te sirve para <strong>construir cosas</strong>, darle vida
+                a tus ideas y compartirlas con tus amigos (y el mundo!).
 
 
-<pre>import pilas
-pilas.iniciar()
-</pre>
+                <p>Esta herramienta te invitará a descubrir cómo programar, de forma práctica
+                y realizando videojuegos. ¿que te parece?
+
+              </script>
+
+              <script type='text/ng-template' id='lenguaje.html'>
+                <div style='text-align: right'><a href='#/'><i class="icon-left-circled"></i> Regresar</a> </div>
+                
+                <p>Programar se resume a algo muy sencillo, es darle órdenes a la computadora, escribir
+                paso a paso que tiene que hacer y cómo.
+
+                <p>No es algo mecánico, el desafío mas grande está en cómo llevar nuestras ideas
+                complejas y visuales a un lenguaje que entienda la computadora.
+
+                <p>Es cómo contar una historia, si tienes que decírselo a la computadora hay que
+                obviar algunos detalles y ser específico en algunas cosas.
+
+                <p>¿Entonces se trata acerca de aprender un nuevo lenguaje?, bueno... no exactamente. En parte
+                tienes que aprender a decirle a la computadora cosas en un lenguaje nuevo, pero esto no
+                es lo mas importante, lo mas importante es cómo diseñar esos mensajes para que la computadora
+                haga lo que quieras.
+
+                <p><strong>El nuevo lenguaje: python</strong>
+
+                <p>Python es un lenguaje que entendemos las personas y las computadoras, es un
+                lenguaje simple y exacto, tal y cómo necesitan las computadoras para actuar.
+
+                <p>Hagamos algo sencillo, escribamos algo de código python:
+
+                <p>En la parte izquierda de la pantalla hay código python, borralo completamente.
+
+                <p>En la parte derecha solo deberías ver una pantalla azúl, ahí es donde
+                veremos el resultado de nuestro programa en funcionamiento.
+
+                <p>Escribe la siguiente linea en el editor:
+
+                <pre class='code'>pepe = pilas.actores.Aceituna()</pre>
+
               </script>
 
 
+              <script type='text/ng-template' id='glosario.html'>
+                <div style='text-align: right'><a href='#/'><i class="icon-left-circled"></i> Regresar</a> </div>
+
+                <p>Durante el tutorial usamos varias palabras que son muy comunes
+                dentro de la programación, pero que seguramente no sean familiares a
+                todo el mundo.
+
+                <p>Aquí resumimos el significado de varias de esas palabras:
+
+                <dl>
+                    <dt>Referencia: </dt>
+                    <dd>Es el símbolo que se usa para darle nombre a un dato. Por ejemplo
+                    en un programa donde se escribe <em>persona = 'martín'</em>, <em>persona</em> es 
+                    la referencia al dato <em>'martín'</em>.</dd>
+
+
+                    <dt>Sentencia: </dt>
+                    <dd>Es una linea de código completa, que generalmente representa una sola acción, una órden.</dd>
+                </dl> 
+              </script>
 
 
             </div>

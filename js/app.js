@@ -2,7 +2,9 @@ angular.module('MyApp', [], function($routeProvider, $locationProvider) {
 
   $routeProvider.
       when('/', { templateUrl: 'home.html'}).
-      when('/ejemplo', { templateUrl: 'ejemplos.html'}).
+      when('/programar', { templateUrl: 'programar.html'}).
+      when('/lenguaje', { templateUrl: 'lenguaje.html'}).
+      when('/glosario', { templateUrl: 'glosario.html'}).
       otherwise({redirectTo: '/'});
 
 });

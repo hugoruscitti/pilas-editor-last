@@ -86,3 +86,16 @@ textarea.terminal {
     height: 200px;
     font-size: 14px;
 }
+
+pre.code {
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    padding: 5px;
+    font-family: monaco;
+    font-size: small;
+    padding-left: 10px;
+}
+
+dt {
+  margin-top: 15px;
+}
