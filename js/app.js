@@ -1,8 +1,16 @@
-function ApplicationController($scope, $http) {
-  $http.get("programas.json").success(function(data) {
-    alert(data);
-  });
+angular.module('MyApp', [], function($routeProvider, $locationProvider) {
 
+  $routeProvider.
+      when('/', { templateUrl: 'home.html'}).
+      when('/ejemplo', { templateUrl: 'ejemplos.html'}).
+      otherwise({redirectTo: '/'});
+
+});
+  
+
+
+
+function ApplicationController($scope) {
   $scope.programas = [
         {id: 0, name: 'hola mundo con eco', codigo: 'print("Hola mundo !" * 10)'},
         {id: 1, name: 'pilas basico', codigo: 'a = pilas.actores.Aceituna()' + '\n' +
@@ -43,4 +51,5 @@ function ApplicationController($scope, $http) {
   $scope.abrir_programa = function(id_programa) {
     editor.getSession().setValue(obtener_codigo_por_id(id_programa));
   }
+
 }
