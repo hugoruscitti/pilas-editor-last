@@ -1,81 +1,194 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+<html lang="en">
+<head>
+    <title>Python en las escuelas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una propuesta para llevar python a las escuelas argentinas">
+    <meta name="author" content="recursive.com.au">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/general.css" rel="stylesheet">
+        
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Delius+Swash+Caps" rel="stylesheet" type="text/css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Pilas-editor by hugoruscitti</title>
-  </head>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+</head>
+<body>
 
-        <header>
-          <h1>Pilas-editor</h1>
-          <h2>Una propuesta de editor para aprender a programar con pilas-engine.</h2>
-        </header>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/hugoruscitti/pilas-editor/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/hugoruscitti/pilas-editor/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/hugoruscitti/pilas-editor" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+<div class="container">
+  <div class='cinta'>
+    <a href='http://www.pyar.org.ar'><img src='img/pyar.png'></a>
+  </div>
 
-        <hr>
-
-        <section id="main_content">
-          <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <footer>
-          Pilas-editor is maintained by <a href="https://github.com/hugoruscitti">hugoruscitti</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-                  <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-5829629-10");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-      </div>
+    <div class="row">
+        <div class="feature span12">
+            <h2 class="motto">¡Llevemos programación a las escuelas!</h2>
+            <h3 class="subheader">Usando python, videojuegos y web-apps</h3>
+            <img id="feature-screenshot" src="img/preview.png" alt="screenshot" />
+        </div>
     </div>
-  </body>
+
+    <div class="row">
+        <div class="span12 center graded">
+            <a href="./editor.html" class="signup">¡Usá el prototipo ahora!</a>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <h2>¡Es <strong>momento</strong> de cambiar el mundo !</h2>
+    <h3 class="subheader">eh, bueno, al menos cambiemos cómo enseñamos programación...</h3>
+    <div class="row">
+        <div class="span12">
+        <ul class="thumbnails">
+            <li class="span3">
+                <div class="thumbnail">
+                    <span>Simple, útil y significativo</span>
+                    <img src="img/pics/placeholder_260.png" width="260" height="180" alt="">
+                    
+                </div>
+            </li>
+            <li class="span3">
+                <div class="thumbnail">
+                    <span>Con un manual práctico</span>
+                    <img src="img/pics/placeholder_260.png" width="260" height="180" alt="">
+                </a>
+            </li>
+            <li class="span3">
+                <div class="thumbnail">
+                    <span>¡ Para hacer juegos !</span>
+                    <img src="img/pics/placeholder_260.png" width="260" height="180" alt="">
+                </div>
+            </li>
+            <li class="span3">
+                <div class="thumbnail">
+                    <span>Orientado a jóvenes</span>
+                    <img src="img/pics/placeholder_260.png" width="260" height="180" alt="">
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="span12 box drop-shadow">
+            <div class="row">
+                <article class="span10 offset1">
+                    <h3 style='text-align:center'>¿Por qué darle importancia?</h3>
+                    <p>Porque programar te permite <strong>aprender haciendo cosas</strong>, se vuelve algo muy
+                    significativo y divertido, te da muchas herramientas y oportunidades de aprendizaje: te 
+                    permite tener el control de la computadora y decirle qué hacer. Podrías crear un 
+                    videojuego, una aventura multimedia, un sitio web o un puñado de ventanas con 
+                    botones e imágenes que hacen algo útil (o no). 
+
+                    <p>Hacer programas de computadora no es solamente escribir código, consiste en crear una
+estrategia paso a paso de lo que queremos lograr. Es algo dirigido a un resultado, es comenzar con 
+una idea básica (a veces incompleta) y convertirla en realidad. </p>
+
+                </article>
+            </div>
+            <div class="row">
+                <div class="span4 offset1">
+                    <img src="img/pics/placeholder_200.png" alt="placeholder" />
+                </div>
+                <article class="span6">
+                    <h3>Para los jóvenes</h3>
+
+                    <p>
+                    El objetivo mas ambicioso de esta propuesta, es ayudar a crear una herramienta para 
+                    que los chicos puedan expresar su creatividad usando computadoras. </p>
+                    
+                    <p>Una herramienta que los ayude a pasar de 
+                    <strong>usuarios a desarrolladores</strong>, que vean a los programas cómo algo que se
+                    construye con ideas y conocimiento práctico.
+                    </p>
+                </article>
+            </div>
+            <div class="row">
+                <article class="span6 offset1">
+                    <h3>Un futuro brillante</h3>
+                    <p>¿Podés imaginarlo?. Cada chico ante la posibilidad de usar
+                    su computadora para poner en práctica sus ideas, construyendo proyectos
+                    significativos con sus compañeros y comprendiendo que pueden lograr todo lo que se
+                    propongan.</p>
+                </article>
+                <div class="span4">
+                    <img src="img/pics/placeholder_200.png" alt="placeholder" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+<div class="container">
+    <h2>¡Sumate!</h2>
+    <div class="row">
+        <div class="span12 box">
+            <article class="span10 offset1">
+
+            <p>Esta propuesta es una idea que tengo hace años, quiero compartirla con
+            todo el mundo porque tengo la esperanza de recibir ayuda de programadores, alumnos,
+            docentes y diseñadores.</p>
+
+            <p>¿Te gustaría conocer mas?, estemos en contacto:</p>
+
+            <p style='text-align: right; margin-right: 35px'>Hugo Ruscitti</a>
+
+
+
+          <!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup" class='center' style='margin-top: 5em'>
+<form class='form-horizontal' action="http://gcoop.us2.list-manage.com/subscribe/post?u=31fcf064047d75c72363bac85&amp;id=db1efd1412" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<h4>Envíame tu correo así te informo de novedades</h4>
+<div class="mc-field-group">
+
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span><input type="email" value="" placeholder='Dirección de correo' name="EMAIL" class="required email" id="mce-EMAIL">
+    </div>
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+  </div><br/>	<div class="clear"><input type="submit" class='btn' value="Continuar" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+</div>
+
+
+
+            </article>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row footer center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="hugoruscitti" data-lang="es" data-size="large" data-related="hugoruscitti" data-hashtags="pilas-engine">Twittear</a>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <div class="fb-like" data-href="http://www.facebook.com/pages/Pilas-engine" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+
+
+        
+    </div>
+         
+</div>
+
+</body>
 </html>
