@@ -6,7 +6,6 @@ angular.module('MyApp', [], function($routeProvider, $locationProvider) {
       when('/lenguaje', { templateUrl: 'lenguaje.html'}).
       when('/glosario', { templateUrl: 'glosario.html'}).
       otherwise({redirectTo: '/'});
-
 });
   
 
@@ -54,4 +53,10 @@ function ApplicationController($scope) {
     editor.getSession().setValue(obtener_codigo_por_id(id_programa));
   }
 
+
+  $scope.$on('$routeChangeSuccess', function () {
+    var elementos = document.getElementsByClassName("panel_manual");
+    var panel = elementos[0];
+    panel.scrollTop = 0;
+  });
 }
