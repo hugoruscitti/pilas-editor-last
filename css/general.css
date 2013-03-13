@@ -451,3 +451,17 @@ line-height: 23px;
 }
 
 
+.thumbnail {
+  position: relative;
+}
+
+.thumbnail > img {
+  height: auto;
+}
+
+.thumbnails span {
+  position: absolute;
+  bottom: 5px;
+  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.38);
+}
