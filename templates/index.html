@@ -1,1 +1,348 @@
-<h1>Hola!</h1>
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html ng-app='MyApp' class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>pilas-editor</title>
+    <meta name="description" content="Prueba conceptual de editor de texto" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="humans.txt">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+
+    <!-- Facebook Metadata /-->
+    <meta property="fb:page_id" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content=""/>
+    <meta property="og:title" content=""/>
+
+    <!-- Google+ Metadata /-->
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <link rel="stylesheet" href="/static/css/gumby.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="/static/js/libs/modernizr-2.6.2.min.js"></script>
+    <script src="/static/js/libs/brython.js"></script>
+    <script src="/static/js/libs/angular.min.js"></script>
+    <script src="/static/js/app.js"></script>
+
+    <script src="/static/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="pilasweb_build/pilasweb-engine-0.0.min.js"></script>
+
+
+</head>
+
+
+<body onload="brython()" ng-controller='ApplicationController'>
+
+<script type='text/python'>
+def eval_python(text):
+    exec(text)
+
+ejecutar_codigo()
+</script>
+
+<script>
+  document.$stdout.write = function(data) {
+    var terminal = document.getElementById('terminal');
+    terminal.textContent += data;
+  }
+</script>
+
+<div data-layout='{"type": "border", "hgap": 3, "vgap": 3}' class="layout">
+
+    <div class="center">
+        
+        <div id="editor">pilas.iniciar()
+
+a = pilas.actores.Aceituna()
+a.x = 250
+a.y = 140
+a.rotacion = 65
+
+def crear_otro_actor(x, y):
+  coop = pilas.actores.Cooperativista()
+  coop.x = x
+  coop.y = y
+
+crear_otro_actor(200, 120)
+
+# Para ver en la terminal ...
+print("¿hola?, ¿terminal de texto?, ¿estas ahí?")
+print("Eco " * 10)
+</div>
+    
+
+
+    </div>
+
+   
+    <div class="east">
+    
+      <div class='panel_resultado'>
+        <li id='cuadro_mensajes' class="alert"></li>
+        <canvas id='canvas'></canvas>
+      </div>
+
+
+      <div class='panel_manual'>
+
+        <section class="tabs">
+
+            <ul class="tab-nav">
+                <li class="active"><a href="#">Tutorial</a></li>
+                <li><a href="#">Mis programas</a></li>
+                <li><a href="#">Terminal</a></li>
+            </ul>
+
+            <div class="tab-content active">
+
+              <ng-view>Cargando ...</ng-view>
+
+              <script type='text/ng-template' id='home.html'>
+                    <h4>¡Hola!</h4>
+
+                    <p>Te damos la bienvenida a <em>pilas-editor</em>, una herramienta
+para aprender a programar computadoras haciendo videojuegos, webs y algunas cosas mas.
+
+                    <p>
+                    <strong>Contenido:</strong>
+
+                    <ul>
+                        <li><a href='#/programar'>¿Programar?</a>
+                        <li><a href='#/lenguaje'>Lenguaje</a>
+                        <li>...
+                        <li><a href='#/glosario'>Glosario</a>
+                    </ul>
+
+                    <p><small>Habrá mas lecciones en el futuro por supuesto :)</small>
+            
+              </script>
+
+              <script type='text/ng-template' id='programar.html'>
+                <div style='text-align: right'><a href='#/'><i class="icon-left-circled"></i> Regresar</a> </div>
+
+                <p>¿Programar?</p>
+
+                <p>Así es, posiblemente has escuchado esto antes: Programar consiste en decirle
+a la computadora que tiene que hacer, es darle órdenes, muy específicas y a la vez muy poderosas.
+
+                <p>Casi todo lo que nos rodea usa algún tipo de computadora programable: internet, 
+celulares, computadoras, videojuegos, incluso algunas TV !!.
+
+                <p>Programar es algo que se puede aprender haciendo, es cómo dibujar, tocar
+                música o escribir. Te sirve para <strong>construir cosas</strong>, darle vida
+                a tus ideas y compartirlas con tus amigos (y el mundo!).
+
+
+                <p>Esta herramienta te invitará a descubrir cómo programar, de forma práctica
+                y realizando videojuegos. ¿que te parece?
+
+              </script>
+
+              <script type='text/ng-template' id='lenguaje.html'>
+                <div style='text-align: right'><a href='#/'><i class="icon-left-circled"></i> Regresar</a> </div>
+                
+                <p>Programar se resume a algo muy sencillo, es darle órdenes a la computadora, escribir
+                paso a paso que tiene que hacer y cómo.
+
+                <p>No es algo mecánico, el desafío mas grande está en cómo llevar nuestras ideas
+                complejas y visuales a un lenguaje que entienda la computadora.
+
+                <p>Es cómo contar una historia, si tienes que decírselo a la computadora hay que
+                obviar algunos detalles y ser específico en algunas cosas.
+
+                <p>¿Entonces se trata acerca de aprender un nuevo lenguaje?, bueno... no exactamente. En parte
+                tienes que aprender a decirle a la computadora cosas en un lenguaje nuevo, pero esto no
+                es lo mas importante, lo mas importante es cómo diseñar esos mensajes para que la computadora
+                haga lo que quieras.
+
+                <p><strong>El nuevo lenguaje: python</strong>
+
+                <p>Python es un lenguaje que entendemos las personas y las computadoras, es un
+                lenguaje simple y exacto, tal y cómo necesitan las computadoras para actuar.
+
+                <p>Hagamos algo sencillo, escribamos algo de código python:
+
+                <p>En la parte izquierda de la pantalla hay código python, borralo completamente.
+
+                <p>En la parte derecha solo deberías ver una pantalla azúl, ahí es donde
+                veremos el resultado de nuestro programa en funcionamiento.
+
+                <p>Escribe la siguiente linea en el editor:
+
+                <pre class='code'>pepe = pilas.actores.Aceituna()</pre>
+
+              </script>
+
+
+              <script type='text/ng-template' id='glosario.html'>
+                <div style='text-align: right'><a href='#/'><i class="icon-left-circled"></i> Regresar</a> </div>
+
+                <p>Durante el tutorial usamos varias palabras que son muy comunes
+                dentro de la programación, pero que seguramente no sean familiares a
+                todo el mundo.
+
+                <p>Aquí resumimos el significado de varias de esas palabras:
+
+                <dl>
+                    <dt>Referencia: </dt>
+                    <dd>Es el símbolo que se usa para darle nombre a un dato. Por ejemplo
+                    en un programa donde se escribe <em>persona = 'martín'</em>, <em>persona</em> es 
+                    la referencia al dato <em>'martín'</em>.</dd>
+
+
+                    <dt>Sentencia: </dt>
+                    <dd>Es una linea de código completa, que generalmente representa una sola acción, una órden.</dd>
+                </dl> 
+              </script>
+
+
+            </div>
+
+            <div class="tab-content">
+                <div style='text-align: right'>
+                    <div class="medium secondary btn icon-left entypo icon-plus-squared"><a ng-click='crear_programa()' href="#">Crear uno nuevo</a></div>
+                </div>
+
+              <ul>
+                <li ng-repeat='programa in programas | orderBy:name'><a ng-click='abrir_programa(programa.id)' href='#'>{{programa.name}}</a></li>
+              </ul>
+
+            </div>
+
+            <div class="tab-content">
+              <textarea disabled id='terminal' class='terminal'></textarea>
+
+              <p>
+                <li class="default alert">Este terminal solo muestra mensajes, no admite escribir <small>por ahora ;)</small></li>
+            </div>
+
+
+
+        </section>
+
+      </div>
+
+    </div>
+
+			<div class="north">
+				Pilas Editor <small>(Prueba de concepto)</small>
+			</div>
+
+			<div class="south">
+        Conocé mas <a href='http://hugoruscitti.github.com/pilas-editor'>acerca de este proyecto</a>.
+			</div>
+
+</div>
+
+
+<script>
+  var editor = ace.edit("editor");
+  window.editor = editor;
+
+  function ejecutar_codigo(e) {
+    var cuadro_mensajes = document.getElementById('cuadro_mensajes');
+    var terminal = document.getElementById('terminal');
+    terminal.textContent = "";
+
+
+
+    try {
+        var codigo = editor.getSession().getValue();
+        pilas.reiniciar();
+        eval_python(codigo);
+        cuadro_mensajes.innerHTML = "";
+        cuadro_mensajes.className = "alert";
+      } catch(err) {
+        cuadro_mensajes.innerHTML = err;
+        cuadro_mensajes.className = "alert danger";
+    }
+  }
+
+  editor.getSession().on('change', ejecutar_codigo);
+</script>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.3.min.js"><\/script>')</script>
+
+<script type="text/javascript" src="/static/js/libs/jquery.sizes.js"></script>
+<script type="text/javascript" src="/static/js/libs/jlayout.border.js"></script>
+<script type="text/javascript" src="/static/js/libs/jquery.jlayout.js"></script>
+<script type="text/javascript" src='/static/js/layout_init.js'></script>
+<script src="/static/js/libs/gumby.min.js"></script>
+<script src="/static/js/main.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5829629-10']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+<script>
+function aplicar_binding_a_pilas(pilas) {
+  getter = function(a) {return this[a]};
+  setter = function(a, v) {this[a] = v};
+
+  pilas.__getattr__ = getter
+  pilas.actores.__getattr__ = getter
+
+  pilas.actores.Aceituna.__getattr__ = getter
+  pilas.actores.Aceituna.__setattr__ = setter
+}
+</script>
+
+<script>
+  require(['init'], function(pilas){
+    window.pilas = pilas;
+    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb_build/data'});
+
+    // haciendo seguro llamar varias veces a "pilas.iniciar".
+    pilas.iniciar = pilas.reiniciar;
+    window.pilas.onready = function(){;
+      aplicar_binding_a_pilas(pilas);
+      // ejecuta el codigo del editor.
+    };
+  });
+
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/python");
+  editor.setDisplayIndentGuides(false);
+</script>
+
+  </body>
+</html>
