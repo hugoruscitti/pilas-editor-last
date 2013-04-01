@@ -9,8 +9,6 @@
 <head>
     <meta charset="utf-8">
 
-    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/b/378 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>pilas-editor</title>
@@ -43,7 +41,7 @@
     <script src="/static/js/app.js"></script>
 
     <script src="/static/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="pilasweb_build/pilasweb-engine-0.0.min.js"></script>
+    <script src="/static/pilasweb_build/pilasweb-engine-0.0.min.js"></script>
 
 
 </head>
@@ -109,6 +107,7 @@ print("Eco " * 10)
                 <li class="active"><a href="#">Tutorial</a></li>
                 <li><a href="#">Mis programas</a></li>
                 <li><a href="#">Terminal</a></li>
+                <li><a href="#">Intérprete</a></li>
             </ul>
 
             <div class="tab-content active">
@@ -228,10 +227,17 @@ celulares, computadoras, videojuegos, incluso algunas TV !!.
             </div>
 
             <div class="tab-content">
+
+
+
+
               <textarea disabled id='terminal' class='terminal'></textarea>
 
               <p>
                 <li class="default alert">Este terminal solo muestra mensajes, no admite escribir <small>por ahora ;)</small></li>
+
+
+
             </div>
 
 
@@ -243,7 +249,7 @@ celulares, computadoras, videojuegos, incluso algunas TV !!.
     </div>
 
 			<div class="north">
-				Pilas Editor <small>(Prueba de concepto)</small>
+				Pilas Editor <small>(Beta v2)</small>
 			</div>
 
 			<div class="south">
@@ -329,7 +335,7 @@ function aplicar_binding_a_pilas(pilas) {
 <script>
   require(['init'], function(pilas){
     window.pilas = pilas;
-    window.pilas.iniciar({ancho: 500, alto: 240, data_path: 'pilasweb_build/data'});
+    window.pilas.iniciar({ancho: 500, alto: 240, data_path: '/static/pilasweb_build/data'});
 
     // haciendo seguro llamar varias veces a "pilas.iniciar".
     pilas.iniciar = pilas.reiniciar;

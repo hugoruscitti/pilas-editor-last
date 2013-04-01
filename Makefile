@@ -7,16 +7,17 @@ help:
 build:
 	@echo "Obteniendo el subrepositorio de pilasweb y compilando."
 	
-	@git submodule update --init
+	#@git submodule update --init
 	@cd pilasweb; make generar
 	
 	@echo "Generando archivos compilados de pilas web."
-	@cp -r pilasweb/build/ pilasweb_build
+	@cp -r pilasweb/build/ static/pilasweb_build
 
 deploy: build	
-	@echo "Cambiando de branch para publicar en la web."
-	@git checkout gh-pages
-	@git merge --no-ff master
+	@echo "Opcion deshabilitada"
+	#@echo "Cambiando de branch para publicar en la web."
+	#@git checkout gh-pages
+	#@git merge --no-ff master
 	
-	@git add pilasweb_build
-	@git commit -m "Realizando deploy semi-automatico desde Make."
+	#@git add pilasweb_build
+	#@git commit -m "Realizando deploy semi-automatico desde Make."
