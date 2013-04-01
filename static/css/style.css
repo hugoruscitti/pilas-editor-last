@@ -5,7 +5,7 @@
       #console { bottom: 0; left: 0; right: 0; width: 100%; margin-bottom: 0; overflow: auto; /*border-bottom: 1px solid #5B5C5B;*/ }
 
       #output { list-style: none; margin: 0; padding: 0; }
-      #output li { margin: 5px 0; padding: 5px; border-top: 1px solid #EEEFEE; white-space: pre-wrap; padding-bottom: 0; }
+      #output li { margin: 5px 0; padding: 5px; white-space: pre-wrap; padding-bottom: 0; }
       #output li:last-child { border-bottom: 0;}
       #output > li > div { margin-left: 20px; line-height: 20px; }
       #console span.gutter { float: left; display: block; width: 5px; }
@@ -27,10 +27,11 @@
       #output li.echo + li.response { border-width: 0; }
 
       /* hard line on new echo */
-      #output li.response + li.echo { border-width: 2px; border-color: #DFDFDF; }
+      /* #output li.response + li.echo { border-width: 2px; border-color: #DFDFDF; }
       #output li.error + li.echo { border-width: 2px; border-color: #DFDFDF; }
       #output li.log + li.echo { border-width: 2px; border-color: #DFDFDF; }
       #output li.info + li.echo { border-width: 2px; border-color: #DFDFDF; }
+      */
       /*#output li.info .response span { line-height: 30px; }*/
 
       #output li.echo:first-child { border-width: 0;}
