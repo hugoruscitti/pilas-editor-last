@@ -1,12 +1,14 @@
+# -*- encoding: utf-8 -*-
 from flask import Flask
 from flask import render_template
 
+import utils
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return utils.send_page('index.html')
 
 @app.route('/interprete')
 def interprete():
