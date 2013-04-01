@@ -437,8 +437,8 @@ var exec = document.getElementById('exec'),
         wait = true;
         return '';
       },
-      clear: function () {
-        setTimeout(function () { output.innerHTML = ''; }, 10);
+      clear: function (on_clear) {
+        setTimeout(function () { output.innerHTML = ''; if(on_clear) {on_clear();} }, 10);
         return 'clearing...';
       },
       reset: function () {

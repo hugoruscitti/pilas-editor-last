@@ -58,8 +58,7 @@ ejecutar_codigo()
 
 <script>
   document.$stdout.write = function(data) {
-    var terminal = document.getElementById('terminal');
-    terminal.textContent += data;
+    jsconsole.echo(data);
   }
 </script>
 
@@ -81,7 +80,7 @@ def crear_otro_actor(x, y):
 
 crear_otro_actor(200, 120)
 
-# Para ver en la terminal ...
+# Para ver en la pestaña "Intérprete"
 print("¿hola?, ¿terminal de texto?, ¿estas ahí?")
 print("Eco " * 10)
 </div>
@@ -106,7 +105,6 @@ print("Eco " * 10)
             <ul class="tab-nav">
                 <li class="active"><a href="#">Tutorial</a></li>
                 <li><a href="#">Mis programas</a></li>
-                <li><a href="#">Terminal</a></li>
                 <li><a href="#">Intérprete</a></li>
             </ul>
 
@@ -226,22 +224,20 @@ celulares, computadoras, videojuegos, incluso algunas TV !!.
 
             </div>
 
-            <div class="tab-content">
+            <div class="tab-content" style='position: relative'>
+              <link rel="stylesheet" href="/static/css/style_console.css" title="" type="" />
+              <div class="stretch console">
+                <div id="console" class="stretch">
+                  <ul id="output"></ul>
+                  <form>
+                    <textarea autofocus id="exec" spellcheck="false" autocapitalize="off" rows="1" autocorrect="off"></textarea>
+                  </form>
+                </div>
+              </div>
 
-
-
-
-              <textarea disabled id='terminal' class='terminal'></textarea>
-
-              <p>
-                <li class="default alert">Este terminal solo muestra mensajes, no admite escribir <small>por ahora ;)</small></li>
-
-
-
+              <script type="text/javascript" charset="utf-8" src="/static/javascript/console.js"> </script>
+              <script type="text/javascript" charset="utf-8" src="/static/javascript/prettyprint.js"> </script>
             </div>
-
-
-
         </section>
 
       </div>
@@ -265,21 +261,22 @@ celulares, computadoras, videojuegos, incluso algunas TV !!.
 
   function ejecutar_codigo(e) {
     var cuadro_mensajes = document.getElementById('cuadro_mensajes');
-    var terminal = document.getElementById('terminal');
-    terminal.textContent = "";
+
+    jsconsole.clear(function() {
+      try {
+          var codigo = editor.getSession().getValue();
+          pilas.reiniciar();
+          eval_python(codigo);
+          cuadro_mensajes.innerHTML = "";
+          cuadro_mensajes.className = "alert";
+        } catch(err) {
+          cuadro_mensajes.innerHTML = err;
+          cuadro_mensajes.className = "alert danger";
+      }
+    });
 
 
 
-    try {
-        var codigo = editor.getSession().getValue();
-        pilas.reiniciar();
-        eval_python(codigo);
-        cuadro_mensajes.innerHTML = "";
-        cuadro_mensajes.className = "alert";
-      } catch(err) {
-        cuadro_mensajes.innerHTML = err;
-        cuadro_mensajes.className = "alert danger";
-    }
   }
 
   editor.getSession().on('change', ejecutar_codigo);
