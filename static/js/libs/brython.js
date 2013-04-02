@@ -208,16 +208,30 @@ if(document.$stderr){document.$stderr.write(document.$stderr_buff+'\n')}
 else{throw(err)}
 }
 }
-function exec(src){
-try{eval($py2js(src).to_js())}
-catch(err){
-if(err.py_error===undefined){err=RuntimeError(err.message)}
-var trace=err.__name__+': '+err.message+err.info
-if(document.$stderr){document.$stderr.write(trace)}
-else{console.log(trace)}
-throw err
+
+
+
+function exec(src) {
+  var return_value=null;
+
+  try{
+    return_value = eval($py2js(src).to_js());
+  } catch(err) {
+    if (err.py_error===undefined) {
+      err=RuntimeError(err.message)
+    }
+
+    var trace=err.__name__+': '+err.message+err.info
+
+    if (document.$stderr) {
+      document.$stderr.write(trace);
+    } else {
+      console.log(trace);
+    } throw err
+  }
+  return return_value;
 }
-}
+
 function filter(){
 if(arguments.length!=2){throw TypeError(
 "filter expected 2 arguments, got "+arguments.length)}
