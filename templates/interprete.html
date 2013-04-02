@@ -4,6 +4,7 @@
 
     <title>Intérprete demo</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style_console.css')}}" title="" type="" />
+    <script src="/static/js/libs/brython.js"></script>
 </head>
 
 <body>
@@ -19,5 +20,12 @@
     
     <script type="text/javascript" charset="utf-8" src="{{url_for('static', filename='javascript/console.js')}}"> </script>
     <script type="text/javascript" charset="utf-8" src="{{url_for('static', filename='javascript/prettyprint.js')}}"> </script>
+
+    <script>
+      brython();
+      document.$stdout.write = function(data) {
+        jsconsole.echo(data);
+      }
+    </script>
 </body>
 </html>

@@ -114,7 +114,8 @@ function run(cmd) {
   } else {
     try {
       //rawoutput = sandboxframe.contentWindow.eval(cmd);
-      rawoutput = window.eval(cmd);
+      //rawoutput = window.eval(cmd);
+      rawoutput = window.exec(cmd);
     } catch (e) {
       rawoutput = e.message;
       className = 'error';
